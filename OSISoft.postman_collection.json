@@ -1,0 +1,692 @@
+{
+	"info": {
+		"_postman_id": "44697265-2c32-4fe9-9006-d11af481ab4e",
+		"name": "OSISoft",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OSISoft Server",
+			"item": [
+				{
+					"name": "OSISoft Get Recorded",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{osisoft_username}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{osisoft_password}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_path}}/streamsets/{{OSISoft_device_webID}}/recorded?startTime=*-5h&endTime=*",
+							"host": [
+								"{{base_path}}"
+							],
+							"path": [
+								"streamsets",
+								"{{OSISoft_device_webID}}",
+								"recorded"
+							],
+							"query": [
+								{
+									"key": "startTime",
+									"value": "*-5h"
+								},
+								{
+									"key": "endTime",
+									"value": "*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OSISoft Get Plant",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{osisoft_username}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{osisoft_password}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_path}}/elements?path={{OSISoft_plant_path}}",
+							"host": [
+								"{{base_path}}"
+							],
+							"path": [
+								"elements"
+							],
+							"query": [
+								{
+									"key": "path",
+									"value": "{{OSISoft_plant_path}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OSISoft Get All Devices",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{osisoft_username}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{osisoft_password}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_path}}/elements/{{facility_element_webID}}/elements?maxCount=2",
+							"host": [
+								"{{base_path}}"
+							],
+							"path": [
+								"elements",
+								"{{facility_element_webID}}",
+								"elements"
+							],
+							"query": [
+								{
+									"key": "maxCount",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OSISoft Get Device",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{osisoft_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{osisoft_username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_path}}/elements/{{OSISoft_device_webID}}",
+							"host": [
+								"{{base_path}}"
+							],
+							"path": [
+								"elements",
+								"{{OSISoft_device_webID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OSISoft Get Summary",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{osisoft_username}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{osisoft_password}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_path}}/streamsets/{{OSISoft_device_webID}}/summary?startTime=-5d&endTime=*&summaryType=all",
+							"host": [
+								"{{base_path}}"
+							],
+							"path": [
+								"streamsets",
+								"{{OSISoft_device_webID}}",
+								"summary"
+							],
+							"query": [
+								{
+									"key": "startTime",
+									"value": "-5d"
+								},
+								{
+									"key": "endTime",
+									"value": "*"
+								},
+								{
+									"key": "summaryType",
+									"value": "all"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OSISoft Query Aggregate",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{osisoft_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{osisoft_username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_path}}/streamsets/{{OSISoft_device_webID}}/summary?startTime=*-200h&endTime=*&summaryType=Average, Minimum&summaryDuration=50H&selectedFields=Items.Name;Items.WebId;Items.Items.Value.Type;Items.Items.Value.Value;Items.Items.Value.Timestamp;Items.Items.Type",
+							"host": [
+								"{{base_path}}"
+							],
+							"path": [
+								"streamsets",
+								"{{OSISoft_device_webID}}",
+								"summary"
+							],
+							"query": [
+								{
+									"key": "startTime",
+									"value": "*-200h"
+								},
+								{
+									"key": "endTime",
+									"value": "*"
+								},
+								{
+									"key": "summaryType",
+									"value": "Average, Minimum"
+								},
+								{
+									"key": "summaryDuration",
+									"value": "50H"
+								},
+								{
+									"key": "selectedFields",
+									"value": "Items.Name;Items.WebId;Items.Items.Value.Type;Items.Items.Value.Value;Items.Items.Value.Timestamp;Items.Items.Type"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Device",
+			"item": [
+				{
+					"name": "Get All Devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{session_token_header}}",
+								"value": "{{opm_session_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api_host}}/iot/device",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"iot",
+								"device"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device By Count",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{session_token_header}}",
+								"value": "{{opm_session_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api_host}}/iot/device?count=-1",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"iot",
+								"device"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{session_token_header}}",
+								"value": "{{opm_session_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api_host}}/iot/device/{{OSISoft_device_webID}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"iot",
+								"device",
+								"{{OSISoft_device_webID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{opm_session_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Measurement",
+			"item": [
+				{
+					"name": "Query Events",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "{{session_token_header}}",
+								"value": "{{opm_session_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"getEvents\": {\n        \"timeSeriesId\": [\n            \"E0lvE0XEErn0u4VSxBMCQA1AY-HUC4jT6xG2ngANOp-JJQT1NJU09GVC1UU1QtRUFTXFRFU1REQlxMSUJSRVNUQVRJT05cVFVSQklORTE\"\n        ],\n        \"searchSpan\": {\n            \"from\": \"*-5m\",\n            \"to\": \"*\"\n        },\n        \"projectedProperties\": [\n            {\n                \"name\": \"rpm\",\n                \"type\": \"Int32\"\n            },\n            {\n                \"name\": \"rpm_unit\",\n                \"type\": \"Text\"\n            },\n            {\n                \"name\": \"speed\",\n                \"type\": \"Int32\"\n            },\n            {\n                \"name\": \"speed_unit\",\n                \"type\": \"Text\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/iot/measurement/query",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"iot",
+								"measurement",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Aggregates",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "{{session_token_header}}",
+								"value": "{{opm_session_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"aggregateSeries\": {\n        \"timeSeriesId\": [\n            \"E0lvE0XEErn0u4VSxBMCQA1AY-HUC4jT6xG2ngANOp-JJQT1NJU09GVC1UU1QtRUFTXFRFU1REQlxMSUJSRVNUQVRJT05cVFVSQklORTE\"\n        ],\n        \"searchSpan\": {\n            \"from\": \"*-2h\",\n            \"to\": \"*\"\n        },\n        \"interval\": \"PT20M\",\n        \"projectedVariables\": [\n            \"average\"\n        ],\n        \"inlineVariables\": {\n            \"average\": {\n                \"kind\": \"numeric\",\n                \"value\": {\n                    \"tsx\": \"$event.speed\"\n                },\n                \"aggregation\": {\n                    \"tsx\": \"avg($value)\"\n                }\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/iot/measurement/query",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"iot",
+								"measurement",
+								"query"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "649a9f42-ccd7-4e59-8609-d9a0d1ae6b28",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"if (jsonData.sessionId != \"\") {",
+									"    pm.globals.set(\"opm_session_token\", jsonData.sessionId);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"UserName\": \"{{opm_user}}\",\n\t\"Password\": \"{{opm_user_password}}\",\n    \"HostName\": \"Postman\",\n    \"ProductId\": 2,\n    \"ProductVersion\": \"10.2.0.0\",\n    \"AllowCaptureModeLogin\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{opm_url}}/api/auth/login",
+							"host": [
+								"{{opm_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "{{session_token_header}}",
+								"value": "{{opm_session_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{opm_url}}/api/auth/login",
+							"host": [
+								"{{opm_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7687b7e1-9982-40da-b290-24d6306a6a6f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2bdabfa6-c6ad-4924-9c06-1ff268684781",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Get Client Policy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "{{session_token_header}}",
+								"value": "{{opm_session_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{opm_url}}/api/client/policy",
+							"host": [
+								"{{opm_url}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"policy"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_path",
+			"value": "PI_WEB_API_URL"
+		},
+		{
+			"key": "osisoft_username",
+			"value": "USERNAME"
+		},
+		{
+			"key": "osisoft_password",
+			"value": "PASSWORD"
+		},
+		{
+			"key": "OSISoft_device_webID",
+			"value": "DEVICE_WEBID"
+		},
+		{
+			"key": "OSISoft_plant_path",
+			"value": "PATH"
+		},
+		{
+			"key": "facility_element_webID",
+			"value": "FACILITY_WEBID"
+		},
+		{
+			"key": "api_host",
+			"value": "INTEGRATION_URL"
+		},
+		{
+			"key": "opm_url",
+			"value": "https://onsight.librestream.com/OamRestApi"
+		},
+		{
+			"key": "opm_user",
+			"value": "USER_EMAIL"
+		},
+		{
+			"key": "opm_user_password",
+			"value": "PASSWORD"
+		},
+		{
+			"key": "session_token_header",
+			"value": "X-Session-Token"
+		}
+	]
+}
