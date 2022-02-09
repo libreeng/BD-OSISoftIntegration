@@ -1,22 +1,26 @@
 # OSISoft PI Server IIoT and LibreStream OnSight Integration
 
--   [Introduction](#introduction)
-    -   [Requirements](##requirements)
--   [PI Server Setup](#pi-server-setup)
-    -   [Installing PI AF Client 2018 SP3 Patch 3](#installing-pi-af-client-2018-sp3-patch-3)
-    -   [Adding an Element](#adding-an-element)
-    -   [Adding an Attribute](#adding-an-attribute)
-    -   [Setting Up A Mock Data Feed](#setting-up-a-mock-data-feed)
--   [PI Web API](#pi-web-api)
-    -   [Installing PI Web API](#installing-pi-web-api)
-    -   [Enabling IDOnly Web IDs (Optional)](#enabling-idonly-web-ids-optional)
-    -   [Running the PI Web API Admin Utility](#running-the-pi-web-api-admin-utility)
--   [Basic Authentication for the PI Web API](#basic-authentication-for-the-pi-web-api)
-    -   [Enabling Authentication for the PI Web API](#enabling-authentication-for-the-pi-web-api)
--   [Integration](#integration)
-    -   [Hosting the OnSight Integration on an Azure App Service](#hosting-the-onsight-integration-on-an-azure-app-service)
-    -   [Connect OnSight Connect With Your PI Server IIoT Data](#connect-onsight-connect-with-your-pi-server-iiot-data)
-    -   [Testing the Integration](#testing-the-integration)
+- [OSISoft PI Server IIoT and LibreStream OnSight Integration](#osisoft-pi-server-iiot-and-librestream-onsight-integration)
+- [Introduction](#introduction)
+  - [Requirements](#requirements)
+- [PI Server Setup](#pi-server-setup)
+  - [Installing PI Server Client 2018 SP3 Patch 3](#installing-pi-server-client-2018-sp3-patch-3)
+  - [Installing PI AF Client 2018 SP3 Patch 3](#installing-pi-af-client-2018-sp3-patch-3)
+  - [Adding an Element](#adding-an-element)
+  - [Adding an Attribute](#adding-an-attribute)
+  - [Setting Up A Mock Data Feed](#setting-up-a-mock-data-feed)
+- [PI Web API](#pi-web-api)
+  - [Installing PI Web API](#installing-pi-web-api)
+  - [Enabling IDOnly Web IDs (Optional)](#enabling-idonly-web-ids-optional)
+  - [Running the PI Web API Admin Utility](#running-the-pi-web-api-admin-utility)
+- [Basic Authentication for the PI Web API](#basic-authentication-for-the-pi-web-api)
+  - [Enabling Authentication for the PI Web API](#enabling-authentication-for-the-pi-web-api)
+- [Integration](#integration)
+  - [Hosting the OnSight Integration on an Azure App Service](#hosting-the-onsight-integration-on-an-azure-app-service)
+  - [Connect OnSight Connect With Your PI Server IIoT Data](#connect-onsight-connect-with-your-pi-server-iiot-data)
+  - [Testing the Integration](#testing-the-integration)
+- [Additional Features](#additional-features)
+  - [Limits](#limits)
 
 # Introduction
 
@@ -40,19 +44,32 @@ If you already have a PI Server set up with IIoT data, skip to [PI Web API](#pi-
 
 The following high-level steps must be completed:
 
+1.  Installing PI Server Client 2018 Service Pack 3 — Patch 3
 1.  Installing PI AF Client 2018 Service Pack 3 — Patch 3
 2.  Add an element
 3.  Setup a mock data feed
 
+## Installing PI Server Client 2018 SP3 Patch 3
+
+1. Go to the [OSISoft Customer Portal](https://customers.osisoft.com) and click the Products tab.
+
+2. Click the Download icon next to PI Developers Club.
+
+3. Look for PI Server 2018 SP3 Patch 3 Installation Kit under Installation Kits and download it.
+
+4. Open the file once it downloads. The two installations you need for this setup are the PI Data Archive and AF Server. No special settings are needed during installation for this integration. Please refer to OSISoft documentation for more details on the installation process and settings.
+
+    ![Data Archive and AF Server](OSISoft/doc/images/server_4.png "Data Archive and AF Server")
+
 ## Installing PI AF Client 2018 SP3 Patch 3
 
-\(ADD INSTRUCTIONS\)
+1. Go to the [OSISoft Customer Portal](https://customers.osisoft.com) and click the Products tab.
 
-1.  Do this.
+2. Click the Download icon next to PI Developers Club.
 
-2.  Do that.
+3. Look for the PI Asset Framework (AF) Client 2018 SP3 Patch 3 Installation Kit and download it.
 
-3.  Do this again.
+4. Open the file once it downloads. The installation does not require any special settings or configurations.
 
 ## Adding an Element
 
@@ -139,7 +156,7 @@ In this task, you will need to create a **PI Point** to provide data to the attr
 
     ![Save the PI Point](OSISoft/doc/images/mock_data_5.png "Save the PI Point")
 
-9.  **Install Random, and Add Later**
+9.  The Random Interface can be found under the PI Developer Club downloads under the Product tab in the [OSISoft Customer Portal](https://customers.osisoft.com). Look for PI Interface for Random Simulator Data Install Kit. Open the file once it's downloaded. No input is needed for the install.
 
 10. Launch the **PI Interface Configuration Utility** and click the **New**![](../reuse/OSISoft/doc/images/OSISoft_PI_New_icon.png) icon.
 
@@ -161,7 +178,7 @@ In this task, you will need to create a **PI Point** to provide data to the attr
 
     ![Scan Classes](OSISoft/doc/images/mock_data_8.png "Scan Classes")
 
-15. Enter hh:mm:ss as the **Scan Frequency** to determine how often the interface should check its value.
+15. Enter an interval in hh:mm:ss format as the **Scan Frequency** to determine how often the interface should check its value.
 
 16. Verify that **Scan Class** value is **1**. This value needs to be identical to the **Location4** value we set earlier.
 
@@ -193,15 +210,13 @@ If you have **PI Web API** running and are using **Basic Auth** already, skip to
 
 ## Installing PI Web API
 
-\(ADD LATER\)
+1. Go to the [OSISoft Customer Portal](https://customers.osisoft.com) and click the Products tab.
 
-In order to install and configure a PI Web API, you will need to:
+2. Click the Download icon next to PI Developers Club.
 
-1.  Do this.
+3. Look for PI Web API 2021 SP1 Install Kit under Installation Kits and download it.
 
-2.  Do that.
-
-3.  and do this too.
+4. Open the file once it downloads. No input is needed for the install.
 
 ## Enabling IDOnly Web IDs (Optional)
 
@@ -226,8 +241,6 @@ Shortening your WebIDs is an easy-to-change setting that will enable your integr
 6.  Close \(Exit\) the PI System Explorer.
 
 ## Running the PI Web API Admin Utility
-
-Run the PI Web API installer to access the **PI Web API Admin Utility**. Accept all prompts that appear. This application enables you to set up the PI Web API for your PI Server.
 
 1.  Launch the **PI Web API Admin Utility.**
 
@@ -273,17 +286,17 @@ Run the PI Web API installer to access the **PI Web API Admin Utility**. Accept 
 
     ![Submit URL](OSISoft/doc/images/web_api_10.png "Submit URL")
 
-14. Check your default settings to confirm they are accurate. You must enable the check box for the **Accept all the configurations and click "Next" to apply** to continue. Click **Next**.
+12. Check your default settings to confirm they are accurate. You must enable the check box for the **Accept all the configurations and click "Next" to apply** to continue. Click **Next**.
 
     ![Review Changes](OSISoft/doc/images/web_api_11.png "Review Changes")
 
-15. The PI Web API set up process will look like this while it is running.
+13. The PI Web API set up process will look like this while it is running.
 
     ![Progress](OSISoft/doc/images/web_api_12.png "Progression Bar")
 
-16. When the **Confirmation** page appears, all jobs should be green and say **Done**.
+14. When the **Confirmation** page appears, all jobs should be green and say **Done**.
 
-17. Click **Finish**.
+15. Click **Finish**.
 
     ![confirmation](OSISoft/doc/images/web_api_13.png "Confirmation")
 
@@ -412,3 +425,13 @@ To test your integration, you will need to:
 
 
 Now that your IIoT data is associated with an image, you can activate its display when necessary.
+
+# Additional Features
+
+## Limits
+
+You can set attributes in OSISoft PI Server to have static caution and warning value limits that will display in yellow and red respectively in OnSight Connection.
+
+In order to define Limits, open PI System Explorer and navigate to an Element then to that Element's Attributes. Right-click an attribute and click Limits.
+
+Lo and Hi will display as yellow caution limits and LoLo and HiHi will display as red warning limits. Make sure to click the checkbox next to each value that you want to be passed to OnSight Connect.
