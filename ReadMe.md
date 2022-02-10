@@ -34,7 +34,7 @@ In order to setup the PI Server, you will need:
 
 -   An OSISoft account with access to PI Server functionality
 
--   The capability to host an Azure web application \(App\) service through the cloud or on-premises.
+-   The capability to host an Azure web application \(App\) service.
 
     **Note:** You can use other means for hosting an ASP.NET Core web application but this guide focuses on Azure.
 
@@ -342,7 +342,7 @@ The instructions that follow are for a basic initial setup to support the integr
 
 1.  Navigate to **App Services** in the **Azure Portal** and click **Create**.
 
-    **Note:** Many of the parameters listed here are unique to your set-up. You will need to set your **Publish** setting to **Code** and the **Operating System** setting to **Linux**.
+    **Note:** Many of the parameters listed here are unique to your set-up needs.
 
 2.  The next step is put the integration code into a repo in **Azure DevOps**. This can easily be done using Git. Refer to [Get started with Git from the command line](https://docs.microsoft.com/en-us/azure/devops/repos/git/share-your-code-in-git-cmdline?view=azure-devops).
 
@@ -364,17 +364,7 @@ The instructions that follow are for a basic initial setup to support the integr
 
     5.  Navigate to the OSISoft/OSISoft.csproj file in the integration code. Change the URL on line 5 to be the Source URL that you copied from the **Connect to Feed** page.
 
-5.  Next, you will need an **Azure DevOps Pipeline** to deploy the app. There's already an azure-pipelines.yml file in the main directory of the repository. You will need to add data that is unique to your deployment.
-
-    1.  On line 28, insert the name of your Artifacts feed.
-
-    2.  On line 60, insert the full name of your Azure subscription. The format for this name is '\{name\}\(\{id\}\)'. The **name** and **ID** can be found within [the subscriptions page for Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-
-    3.  Line 62 requires the name of the web app you created above.
-
-    4.  Make sure the **ResourceGroupName** on line 64 matches the resource group of your web app.
-
-6.  Run the Pipeline — If all goes well, the **Pipeline status** should display a green checkmark in the end. You can now navigate to the endpoint **\{web\_app\_url\}/api/health** to see if the app is operating as expected.
+5.  Next, you will need to the deploy the repo to your App Service in whatever manner suits your needs best. You can [click here](https://docs.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops) for an Azure DevOps deployment documentation resource. 
 
     This completes the procedure.
 

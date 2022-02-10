@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>2ca7ce22-d963-4125-95d8-3bb6c237a23a</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <RootNamespace>LibreStream.Api</RootNamespace>
     <RestoreAdditionalProjectSources>{YOUR_ARTIFACT_FEED_URL}</RestoreAdditionalProjectSources>
